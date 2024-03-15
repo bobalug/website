@@ -30,6 +30,7 @@
 </div>
 
 <div class="mt-10 flex flex-col items-center gap-5">
+	<h3 id="explore" class="text-5xl font-bold">Recent Builds</h3>
 	<Post {data} idx={0} />
 	<Post {data} idx={1} />
 	<Post {data} idx={2} />

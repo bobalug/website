@@ -99,24 +99,34 @@
 				<a href="https://discord.gg/4EDXhSg7" target="_blank" class=" w-fit hover:underline"
 					>Become a Member</a
 				>
-				<a href="/members" class="w-fit hover:underline">Members</a>
+				<span class="w-fit text-zinc-400 hover:cursor-not-allowed">Members</span>
 			</div>
 		</div>
 
 		<div class="flex flex-col gap-1">
 			<strong>Shopping</strong>
 			<div class="flex flex-col text-sm text-slate-300">
-				<a href="/admin/login" class=" w-fit hover:underline">Instruction Store</a>
-				<a href="/admin" class="w-fit hover:underline">Merch Store</a>
-				<a href="/feedback" class="w-fit hover:underline">Instruction Store feedback</a>
+				<a
+					target="_blank"
+					href="https://bobalug-instructions.creator-spring.com/"
+					class=" w-fit hover:underline">Instruction Store</a
+				>
+				<a
+					target="_blank"
+					href="https://bobalugmerchcom.creator-spring.com/"
+					class="w-fit hover:underline">Merch Store</a
+				>
+				<a target="_blank" href="https://forms.gle/8RsQVgksTa8RRvCv8" class="w-fit hover:underline"
+					>Merch Store Feedback</a
+				>
 			</div>
 		</div>
 
 		<div class="flex flex-col gap-1">
 			<strong>Management</strong>
 			<div class="flex flex-col text-sm text-slate-300">
-				<a href="/admin/login" class=" w-fit hover:underline">Admin Login</a>
-				<a href="/admin" class="w-fit hover:underline">Admin Panel</a>
+				<span class=" w-fit text-zinc-400 hover:cursor-not-allowed">Admin Login</span>
+				<span class="w-fit text-zinc-400 hover:cursor-not-allowed">Admin Panel</span>
 			</div>
 		</div>
 	</div>

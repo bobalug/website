@@ -50,6 +50,7 @@
 {:then post}
 	<a
 		href={post.permalink}
+		target="_blank"
 		class="w-3/4 rounded border-[1px] border-white/25 transition-all hover:border-white/50 md:hidden"
 	>
 		<img src={post.mediaUrl} alt="" class="rounded object-cover" />

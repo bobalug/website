@@ -13,7 +13,7 @@
 	<div class="flex items-center justify-center gap-3 text-lg">
 		<a
 			href="/#explore"
-			class="hover:to-zinc-900x` flex items-center gap-3 rounded-lg border-[1px] border-white border-opacity-20 px-3 py-2 transition-all hover:bg-gray-900 hover:bg-gradient-to-br hover:from-zinc-900 hover:via-zinc-800"
+			class="flex items-center gap-3 rounded-lg border-[1px] border-white border-opacity-20 px-3 py-2 transition-all hover:bg-gray-900 hover:bg-gradient-to-br hover:from-zinc-900 hover:via-zinc-800 hover:to-zinc-900"
 		>
 			Explore
 			<i class="fa-solid fa-arrow-down hidden nav-headers:block"></i>

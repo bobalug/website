@@ -62,7 +62,7 @@
 			>
 			<a href="/" class="text-zinc-400 transition-all hover:cursor-not-allowed">Members</a>
 			<a
-				href="https://discord.gg/4EDXhSg7"
+				href="https://discord.gg/63Wdn4FNX7"
 				target="_blank"
 				class="transition-all hover:text-green-boba">Apply</a
 			>
@@ -80,7 +80,7 @@
 			<a href="https://youtube.com/channel/UCnyRsIywqpCCw2rn_51Zsgw" class="hover:text-slate-300">
 				<i class="fa-brands fa-youtube text-lg" />
 			</a>
-			<a href="https://discord.gg/rAKjsXCfjW" class="hover:text-slate-300">
+			<a href="https://discord.gg/zgMZFJcEsn" class="hover:text-slate-300">
 				<i class="fa-brands fa-discord text-lg" />
 			</a>
 		</div>
@@ -96,7 +96,7 @@
 		<div class="flex flex-col gap-1">
 			<strong>Community</strong>
 			<div class="flex flex-col text-sm text-slate-300">
-				<a href="https://discord.gg/4EDXhSg7" target="_blank" class=" w-fit hover:underline"
+				<a href="https://discord.gg/63Wdn4FNX7" target="_blank" class=" w-fit hover:underline"
 					>Become a Member</a
 				>
 				<span class="w-fit text-zinc-400 hover:cursor-not-allowed">Members</span>

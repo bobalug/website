@@ -19,7 +19,7 @@
 			<i class="fa-solid fa-arrow-down hidden nav-headers:block"></i>
 		</a>
 		<a
-			href="https://discord.gg/4EDXhSg7"
+			href="https://discord.gg/63Wdn4FNX7"
 			target="_blank"
 			class="flex items-center gap-3 rounded-lg border-[1px] border-green-boba border-opacity-20 bg-green-boba bg-opacity-80 px-3 py-2 font-bold transition-all hover:border-opacity-100 hover:bg-opacity-90"
 		>

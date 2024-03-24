@@ -125,8 +125,8 @@
 		<div class="flex flex-col gap-1">
 			<strong>Management</strong>
 			<div class="flex flex-col text-sm text-slate-300">
-				<span class=" w-fit text-zinc-400 hover:cursor-not-allowed">Admin Login</span>
-				<span class="w-fit text-zinc-400 hover:cursor-not-allowed">Admin Panel</span>
+				<a href="/admin/login" class=" w-fit hover:underline">Admin Login</a>
+				<a href="/admin" class="w-fit hover:underline">Admin Panel</a>
 			</div>
 		</div>
 	</div>

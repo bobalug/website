@@ -27,7 +27,7 @@
 				target="_blank"
 				class="transition-all hover:text-green-boba">Merch Store</a
 			>
-			<a href="/" class="text-zinc-400 transition-all hover:cursor-not-allowed">Members</a>
+			<a href="/members" class="transition-all hover:text-green-boba">Members</a>
 			<a
 				href="https://discord.gg/4EDXhSg7"
 				target="_blank"
@@ -60,7 +60,7 @@
 				target="_blank"
 				class="transition-all hover:text-green-boba">Merch Store</a
 			>
-			<a href="/" class="text-zinc-400 transition-all hover:cursor-not-allowed">Members</a>
+			<a href="/members" class="transition-all hover:text-green-boba">Members</a>
 			<a
 				href="https://discord.gg/63Wdn4FNX7"
 				target="_blank"
@@ -89,17 +89,17 @@
 
 <slot />
 
-<footer class="mt-10 bg-zinc-900 font-rethink">
+<footer class="sticky top-[100%] mt-10 w-full bg-zinc-900 font-rethink">
 	<div class="hidden justify-around p-5 md:flex">
 		<img src={logo} alt="" class="w-24 rounded-lg bg-green-boba p-1" />
 
 		<div class="flex flex-col gap-1">
 			<strong>Community</strong>
 			<div class="flex flex-col text-sm text-slate-300">
-				<a href="https://discord.gg/63Wdn4FNX7" target="_blank" class=" w-fit hover:underline"
+				<a href="https://discord.gg/63Wdn4FNX7" target="_blank" class="w-fit hover:underline"
 					>Become a Member</a
 				>
-				<span class="w-fit text-zinc-400 hover:cursor-not-allowed">Members</span>
+				<a href="/members" class="w-fit hover:underline">Members</a>
 			</div>
 		</div>
 

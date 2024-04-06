@@ -13,6 +13,7 @@ export default {
 			},
 			screens: {
 				'nav-socials': '835px',
+				'members-cols': '775px',
 				'nav-headers': '665px'
 			},
 			boxShadow: {

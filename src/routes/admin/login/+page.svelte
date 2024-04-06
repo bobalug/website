@@ -2,10 +2,8 @@
 	export let form;
 </script>
 
-<div
-	class="grid min-h-[100vh] w-full grid-cols-[100%] grid-rows-[auto_1fr_auto] items-center justify-center"
->
-	<div class="mx-5 my-10 flex flex-col items-center justify-center rounded-lg bg-zinc-900 p-5">
+<div class="flex min-h-[65vh] items-center justify-center">
+	<div class="flex w-1/2 flex-col items-center justify-center rounded-lg bg-zinc-900 p-5">
 		{#if form}
 			<div class="text-red-500">
 				{form.message}

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ProfilePicture from "./ProfilePicture.svelte";
+
 	export let displayName: string;
 	export let position: string;
 	export let src: string;
@@ -8,13 +10,7 @@
 
 <div class="m-3 flex items-center justify-between rounded-lg p-3 transition-all hover:bg-zinc-800">
 	<div class="ml-3 flex items-center gap-5">
-		{#if !src || src === ''}
-			<div class="flex size-16 items-center justify-center rounded-full bg-zinc-700 uppercase">
-				<span class="font-sans text-3xl font-bold">{displayName.charAt(0)}</span>
-			</div>
-		{:else}
-			<img class="size-16 rounded-full object-cover object-center" {src} alt={displayName} />
-		{/if}
+		<ProfilePicture {src} char={displayName.charAt(0)} size={16} />
 		<div class="flex flex-col">
 			<strong>{displayName}</strong>
 			<small class="text-zinc-400">{position}</small>

@@ -3,6 +3,8 @@
 	import type { Member } from '$lib/types/member';
 	import { v4 as uuidv4 } from 'uuid';
 	import { fly } from 'svelte/transition';
+	import countries from '$lib/database/countries.json';
+	import { onMount } from 'svelte';
 
 	let blurBackground = false;
 	let memberEdit = false;
@@ -10,6 +12,18 @@
 	let imageUrl = true;
 
 	export let data;
+	export let form;
+
+	let updateTimer = 3;
+	onMount(() => {
+		const timer = setInterval(() => {
+			if (updateTimer === 0) {
+				clearInterval(timer);
+			} else {
+				updateTimer--;
+			}
+		}, 1000);
+	});
 
 	const members: Member[] = data.members;
 	let sortedMembers = [...members].sort((a, b) => {
@@ -22,6 +36,17 @@
 		} else {
 			return a.priority - b.priority;
 		}
+	});
+
+	let filter = '';
+
+	$: filteredMembers = [...sortedMembers].filter((member) => {
+		return (
+			member.display_name.toLowerCase().includes(filter.toLowerCase()) ||
+			member.position.toLowerCase().includes(filter.toLowerCase()) ||
+			member.country?.toLowerCase().includes(filter.toLowerCase()) ||
+			member.about?.toLowerCase().includes(filter.toLowerCase())
+		);
 	});
 
 	function createMember(): Member {
@@ -48,6 +73,22 @@
 		activeMember = members.find((member) => member.uuid === id) ?? createMember();
 	}
 </script>
+
+{#if form && form.status === 200 && updateTimer > 0}
+	{#if form.member}
+		<div
+			class="fixed bottom-5 right-5 z-[1000] h-fit w-fit rounded-lg border-[1px] border-green-500/75 bg-black px-2 py-1"
+		>
+			<span class="text-green-500">Successfully updated member.</span>
+		</div>
+	{:else}
+		<div
+			class="fixed bottom-5 right-5 z-[1000] h-fit w-fit rounded-lg border-[1px] border-red-500/75 bg-black px-2 py-1"
+		>
+			<span class="text-red-500">Successfully deleted member.</span>
+		</div>
+	{/if}
+{/if}
 
 {#if blurBackground}
 	<div class="fixed inset-0 z-[500] bg-black/30 backdrop-blur-sm"></div>
@@ -108,13 +149,15 @@
 			<div class="flex gap-3">
 				<label class="w-full">
 					<small>Country</small>
-					<input
-						type="text"
+					<select
 						name="country"
 						bind:value={activeMember.country}
-						placeholder="Country"
 						class="w-full rounded-lg border-[1px] border-white/30 bg-zinc-900 px-2 py-1 outline-none"
-					/>
+					>
+						{#each countries.sort() as country}
+							<option value={country}>{country}</option>
+						{/each}
+					</select>
 				</label>
 				<label class="w-full">
 					<small>Join Date</small>
@@ -219,15 +262,23 @@
 
 <main class="m-10 flex min-h-[60vh] flex-col gap-3">
 	<section class="flex items-center justify-between rounded-lg bg-zinc-900 px-5 py-3">
-		<button
-			on:click={() => {
-				blurBackground = true;
-				memberEdit = true;
-				findMember();
-			}}
-			class="rounded-lg bg-white px-2 py-1 text-black transition-all hover:bg-white/80"
-			>Create Member
-		</button>
+		<div class="flex gap-3">
+			<button
+				on:click={() => {
+					blurBackground = true;
+					memberEdit = true;
+					findMember();
+				}}
+				class="rounded-lg bg-white px-2 py-1 text-black transition-all hover:bg-white/80"
+				>Create Member
+			</button>
+			<input
+				bind:value={filter}
+				type="search"
+				placeholder="Search for members... (name, bio, position, country)"
+				class="w-[28rem] rounded-lg border-[1px] border-white/30 bg-zinc-900 px-2 py-1 outline-none"
+			/>
+		</div>
 		<button
 			form="logout"
 			class="rounded-lg border-[1px] border-red-500 px-2 py-1 text-red-500 transition-all hover:bg-zinc-800"
@@ -236,7 +287,7 @@
 	</section>
 
 	<section class="rounded-lg bg-zinc-900">
-		{#each sortedMembers as member}
+		{#each filteredMembers as member}
 			<AdminTableMember
 				onDelete={() => {
 					let form = document.getElementById('delete');

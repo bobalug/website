@@ -2309,11 +2309,7 @@
 		{#each leftMembers as member}
 			<section class="ml-20 flex h-fit flex-col gap-3 rounded-lg bg-zinc-900 p-5">
 				<div class="flex items-center gap-3">
-					<ProfilePicture
-						src={member.avatar_url ?? ''}
-						char={member.display_name.charAt(0)}
-						size={16}
-					/>
+					<ProfilePicture src={member.avatar_url ?? ''} char={member.display_name.charAt(0)} />
 					<div>
 						<h2 class="font-bold">{member.display_name}</h2>
 						<p class="text-zinc-400">{member.position}</p>
@@ -2327,11 +2323,7 @@
 		{#each rightMembers as member}
 			<section class="mr-20 flex h-fit flex-col gap-3 rounded-lg bg-zinc-900 p-5">
 				<div class="flex items-center gap-3">
-					<ProfilePicture
-						src={member.avatar_url ?? ''}
-						char={member.display_name.charAt(0)}
-						size={16}
-					/>
+					<ProfilePicture src={member.avatar_url ?? ''} char={member.display_name.charAt(0)} />
 					<div>
 						<h2 class="font-bold">{member.display_name}</h2>
 						<p class="text-zinc-400">{member.position}</p>
@@ -2347,11 +2339,7 @@
 				class="mx-[5vw] flex h-fit flex-col gap-3 rounded-lg bg-zinc-900 p-5 nav-headers:mx-[10vw]"
 			>
 				<div class="flex items-center gap-3">
-					<ProfilePicture
-						src={member.avatar_url ?? ''}
-						char={member.display_name.charAt(0)}
-						size={16}
-					/>
+					<ProfilePicture src={member.avatar_url ?? ''} char={member.display_name.charAt(0)} />
 					<div>
 						<h2 class="font-bold">{member.display_name}</h2>
 						<p class="text-zinc-400">{member.position}</p>

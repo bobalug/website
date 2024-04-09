@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProfilePicture from "./ProfilePicture.svelte";
+	import ProfilePicture from './ProfilePicture.svelte';
 
 	export let displayName: string;
 	export let position: string;
@@ -10,7 +10,7 @@
 
 <div class="m-3 flex items-center justify-between rounded-lg p-3 transition-all hover:bg-zinc-800">
 	<div class="ml-3 flex items-center gap-5">
-		<ProfilePicture {src} char={displayName.charAt(0)} size={16} />
+		<ProfilePicture {src} char={displayName.charAt(0)} />
 		<div class="flex flex-col">
 			<strong>{displayName}</strong>
 			<small class="text-zinc-400">{position}</small>

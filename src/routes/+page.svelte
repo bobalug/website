@@ -1,14 +1,20 @@
 <script lang="ts">
 	import Post from '$lib/components/Post.svelte';
 
+	import figfablabs from '$lib/images/sponsors/figfablabs.png';
+	import firestartoys from '$lib/images/sponsors/firestartoys.png';
+	import venom from '$lib/images/sponsors/venom.png';
+
 	export let data;
 </script>
 
 <div class="m-10 flex flex-col items-center justify-center gap-5 font-rethink nav-headers:my-48">
 	<h1 class="text-center text-6xl font-bold">Inspiring Builders Across the Galaxy</h1>
 	<p class="text-center">
-		Building Galactic Connections, One Brick at a Time - Where Inclusivity and Creativity Collide in
-		the Lego Universe!
+		BobaLUG was created on September 19, 2019 with a goal to help inspire the minds of builders
+		across the globe, and to create a community of talented artists who can collaborate and connect
+		on the hobby they all love and enjoy. It’s our mission to continue to improve and connect in
+		various ways with builders all over to provide a sense of belonging and community.
 	</p>
 	<div class="flex items-center justify-center gap-3 text-lg">
 		<a
@@ -28,6 +34,21 @@
 		</a>
 	</div>
 </div>
+<!-- 
+<section class="flex w-full items-center justify-center bg-green-boba p-5">
+	<div class="flex w-3/4 flex-wrap gap-10">
+		<div class="mx-10 w-full">
+			<h5 class="text-2xl font-bold">Mission Statement</h5>
+			<p>
+				BobaLUG was created on September 19, 2019 with a goal to help inspire the minds of builders
+				across the globe, and to create a community of talented artists who can collaborate and
+				connect on the hobby they all love and enjoy. It’s our mission to continue to improve and
+				connect in various ways with builders all over to provide a sense of belonging and
+				community.
+			</p>
+		</div>
+	</div>
+</section> -->
 
 <div class="mt-10 flex flex-col items-center gap-5">
 	<h3 id="explore" class="text-5xl font-bold">Recent Builds</h3>
@@ -38,3 +59,67 @@
 	<Post {data} idx={4} />
 	<Post {data} idx={5} />
 </div>
+
+<section class="my-10 flex flex-col items-center">
+	<div class="flex w-3/4 flex-col items-center gap-5">
+		<h2 class="text-center text-3xl font-bold">Check out our Sponsors!</h2>
+
+		<a
+			href="https://www.fig-fablabs.com/"
+			target="_blank"
+			class="flex w-full items-center rounded-lg border-[1px] border-white/25 p-3 transition-all hover:border-white/50"
+		>
+			<img
+				class="ml-3 mr-5 w-1/4 max-w-28 object-contain md:ml-5 md:mr-10"
+				src={figfablabs}
+				alt="FigFabLabs Logo"
+			/>
+			<div class="flex flex-col gap-1">
+				<h5 class="text-lg font-semibold">FigFabLabs</h5>
+				<p class="hidden nav-headers:block">
+					FigFabLabs specializes in custom machine printed figures while providing the highest
+					customer satisfcation by using UV digital printing and child-safe inks.
+				</p>
+				<small>5% Discount Code: Bobalug</small>
+			</div>
+		</a>
+		<a
+			href="https://venomcbw.com/collections/all-products"
+			target="_blank"
+			class="flex w-full items-center rounded-lg border-[1px] border-white/25 p-3 transition-all hover:border-white/50"
+		>
+			<img
+				class="min- ml-3 mr-5 w-1/4 max-w-28 object-contain md:ml-5 md:mr-10"
+				src={venom}
+				alt="Venom Logo"
+			/>
+			<div class="flex flex-col gap-1">
+				<h5 class="text-lg font-semibold">VenomCBW</h5>
+				<p class="hidden nav-headers:block">
+					Explore VenomCBW (Custom Brick Works) for the best in custom LEGO minifigures and
+					minifigure accessories all in one place. Let your creativity go wild!
+				</p>
+				<small>5% Discount Code: BOBALUG</small>
+			</div>
+		</a>
+		<a
+			href="https://www.firestartoys.com/"
+			target="_blank"
+			class="flex w-full items-center rounded-lg border-[1px] border-white/25 p-3 transition-all hover:border-white/50"
+		>
+			<img
+				class="ml-3 mr-5 w-1/4 max-w-28 object-contain md:ml-5 md:mr-10"
+				src={firestartoys}
+				alt="FireStarToys Logo"
+			/>
+			<div class="flex flex-col gap-1">
+				<h5 class="text-lg font-semibold">FireStarToys</h5>
+				<p class="hidden nav-headers:block">
+					An online store that has a fantastic range of creative, collectible and rare LEGO and
+					custom minifigures. They want to inspire people's love for LEGO Minifigs.
+				</p>
+				<small>10% Discount Code: FSBOBALUG</small>
+			</div>
+		</a>
+	</div>
+</section>

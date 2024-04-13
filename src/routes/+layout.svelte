@@ -89,7 +89,7 @@
 
 <slot />
 
-<footer class="sticky top-[100%] mt-10 w-full bg-zinc-900 font-rethink">
+<footer class="sticky top-[100%] w-full bg-zinc-900 font-rethink">
 	<div class="hidden justify-around p-5 md:flex">
 		<img src={logo} alt="" class="w-24 rounded-lg bg-green-boba p-1" />
 

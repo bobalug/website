@@ -2305,7 +2305,7 @@
 </section>
 
 <main class="my-10 flex min-h-[60vh] justify-center gap-5">
-	<div class="hidden w-full flex-col gap-5 members-cols:flex">
+	<!-- <div class="hidden w-full flex-col gap-5 members-cols:flex">
 		{#each leftMembers as member}
 			<section class="ml-20 flex h-fit flex-col gap-3 rounded-lg bg-zinc-900 p-5">
 				<div class="flex items-center gap-3">
@@ -2348,5 +2348,6 @@
 				<p>{member.about}</p>
 			</section>
 		{/each}
-	</div>
+	</div> -->
+	<h2 class="text-center text-5xl">The members page is a work in progress.</h2>
 </main>

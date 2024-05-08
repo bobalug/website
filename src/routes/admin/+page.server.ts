@@ -1,7 +1,8 @@
 import { supabase } from '$lib/database/supabaseClient.js';
 import { redirect } from '@sveltejs/kit';
+import type { Actions, PageServerLoad } from './$types';
 
-export async function load({ cookies }) {
+export const load: PageServerLoad = async ({ cookies }) => {
 	if (!cookies.get('session_id')) {
 		throw redirect(301, '/admin/login');
 	}
@@ -12,7 +13,7 @@ export async function load({ cookies }) {
 	}
 
 	return { status: 200, members };
-}
+};
 
 export const actions = {
 	logout: async ({ cookies }) => {
@@ -26,16 +27,10 @@ export const actions = {
 		const country = data.get('country') as string;
 		const about = data.get('about') as string;
 		const avatar_url = data.get('avatar_url') as string;
-		const joined_at = data.get('joined_at') as string;
 		const priority = data.get('priority') as string;
 		const uuid = data.get('uuid') as string;
 
-		let numPriority;
-		if (priority === null || priority === '') {
-			numPriority = null;
-		} else {
-			numPriority = parseInt(priority);
-		}
+		let numPriority = parseInt(priority) ?? null;
 
 		const { data: member, error } = await supabase
 			.from('members')
@@ -60,4 +55,4 @@ export const actions = {
 
 		return { status: 200, error: null };
 	}
-};
+} satisfies Actions;

@@ -7,6 +7,7 @@
 	function getCaptionLines(caption: string) {
 		const trimmed = caption.split('@firestartoys')[0];
 		const lines = trimmed.split('\n').slice(1);
+
 		const linesWithPeriods = lines.map((line) => {
 			const trimmedLine = line.trim();
 			if (trimmedLine && !/[.?!]$/.test(trimmedLine)) {
@@ -15,7 +16,14 @@
 			return trimmedLine;
 		});
 
-		return linesWithPeriods;
+		const result = linesWithPeriods.join(' ');
+
+		// only take the first 100 words, if it is shortened at all, append an ellipse
+		if (result.split(' ').length > 50) {
+			return result.split(' ').slice(0, 50).join(' ') + '...';
+		}
+
+		return result;
 	}
 </script>
 
@@ -57,13 +65,11 @@
 		<div class="m-3 flex flex-col justify-between">
 			<div>
 				<h3 class="text-xl font-bold">{post.prunedCaption.split('\n')[0].trim()}</h3>
-				{#each getCaptionLines(post.prunedCaption) as line}
-					<p class="pt-1 text-xs sm:text-sm md:text-base">{line}</p>
-				{/each}
+				<p class="pt-1 text-sm md:text-base">{getCaptionLines(post.prunedCaption)}</p>
 			</div>
 			<div class="flex items-center gap-1 text-xs text-zinc-600">
 				<i class="fa-brands fa-instagram"></i>
-				Post from @bobalug Instagram.
+				Click to open in Instagram
 			</div>
 		</div>
 	</a>
@@ -78,13 +84,11 @@
 		<div class="flex w-1/2 flex-col justify-between p-3">
 			<div>
 				<h3 class="text-xl font-bold">{post.prunedCaption.split('\n')[0].trim()}</h3>
-				{#each getCaptionLines(post.prunedCaption) as line}
-					<p class="pt-1 text-xs sm:text-sm md:text-base">{line}</p>
-				{/each}
+				<p class="pt-1 text-xs sm:text-sm md:text-base">{getCaptionLines(post.prunedCaption)}</p>
 			</div>
 			<div class="flex items-center gap-1 text-sm text-zinc-600">
 				<i class="fa-brands fa-instagram"></i>
-				Post from @bobalug Instagram.
+				Click to open in Instagram
 			</div>
 		</div>
 	</a>

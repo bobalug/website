@@ -34,21 +34,6 @@
 		</a>
 	</div>
 </div>
-<!-- 
-<section class="flex w-full items-center justify-center bg-green-boba p-5">
-	<div class="flex w-3/4 flex-wrap gap-10">
-		<div class="mx-10 w-full">
-			<h5 class="text-2xl font-bold">Mission Statement</h5>
-			<p>
-				BobaLUG was created on September 19, 2019 with a goal to help inspire the minds of builders
-				across the globe, and to create a community of talented artists who can collaborate and
-				connect on the hobby they all love and enjoy. It’s our mission to continue to improve and
-				connect in various ways with builders all over to provide a sense of belonging and
-				community.
-			</p>
-		</div>
-	</div>
-</section> -->
 
 <div class="mt-10 flex flex-col items-center gap-5">
 	<h3 id="explore" class="text-5xl font-bold">Recent Builds</h3>

@@ -2,9 +2,12 @@
 	import '../app.css';
 
 	import logo from '$lib/images/bobalug-logo.png';
+	import Toaster from '$lib/components/Toaster.svelte';
 
 	let navOpen = false;
 </script>
+
+<Toaster />
 
 {#if navOpen}
 	<div class="sticky top-0 z-50 w-full bg-black/70 backdrop-blur-lg">

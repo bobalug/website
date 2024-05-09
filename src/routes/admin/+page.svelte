@@ -5,21 +5,67 @@
 	import countries from '$lib/database/countries.json';
 	import { onMount } from 'svelte';
 	import { createDialog, createCombobox, melt, type ComboboxOptionProps } from '@melt-ui/svelte';
-	import { enhance } from '$app/forms';
+	import { addToast } from '$lib/components/Toaster.svelte';
 
 	let imageUrl = true;
 
 	export let data;
+	export let form;
 
-	let updateTimer = 3;
 	onMount(() => {
-		const timer = setInterval(() => {
-			if (updateTimer === 0) {
-				clearInterval(timer);
-			} else {
-				updateTimer--;
+		if (form?.status !== 200) {
+			addToast({
+				data: {
+					title: 'Error',
+					description: 'Something went wrong...',
+					icon: 'fa-sharp fa-solid fa-shield-exclamation',
+					color: 'text-red-500'
+				}
+			});
+		} else {
+			switch (form?.type) {
+				case 'update':
+					addToast({
+						data: {
+							title: 'Success!',
+							description: 'Member has been updated successfully.',
+							icon: 'fa-sharp fa-solid fa-shield-plus',
+							color: 'text-green-500'
+						}
+					});
+					break;
+				case 'delete':
+					addToast({
+						data: {
+							title: 'Success!',
+							description: 'Member has been deleted successfully.',
+							icon: 'fa-sharp fa-solid fa-shield-minus',
+							color: 'text-green-500'
+						}
+					});
+					break;
+				default:
+					break;
 			}
-		}, 1000);
+		}
+
+		const inputElement = document.getElementById('search-bar') as HTMLInputElement;
+
+		const handleKeyDown = (event: KeyboardEvent) => {
+			// Check if CMD (Mac) or CTRL (Windows) + K is pressed
+			if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+				// Focus on the input element
+				inputElement.focus();
+			}
+		};
+
+		// Add event listener for keydown on window
+		window.addEventListener('keydown', handleKeyDown);
+
+		return () => {
+			// Clean up by removing event listener when component is unmounted
+			window.removeEventListener('keydown', handleKeyDown);
+		};
 	});
 
 	const toOption = (str: string): ComboboxOptionProps<string> => ({
@@ -56,8 +102,8 @@
 			})
 		: countries;
 
-	const members: Member[] = data.members;
-	let sortedMembers = [...members].sort((a, b) => {
+	let members: Member[] = data.members;
+	$: sortedMembers = [...members].sort((a, b) => {
 		if (a.priority === null && b.priority === null) {
 			return 0;
 		} else if (a.priority === null) {
@@ -97,35 +143,48 @@
 	<input type="hidden" name="uuid" id="deleteName" />
 </form>
 
-<main class="m-10 flex min-h-[60vh] flex-col gap-3">
-	<section class="flex items-center justify-between rounded-lg bg-zinc-900 px-5 py-3">
-		<div class="flex gap-3">
-			<button
-				on:click={() => {
-					populateFields();
-				}}
-				use:melt={$trigger}
-				class="rounded-lg bg-white px-2 py-1 text-black transition-all hover:bg-white/80"
-				>Create Member
-			</button>
-			<input
-				bind:value={filter}
-				type="search"
-				placeholder="Search by any field..."
-				class="w-[28rem] rounded-lg border-[1px] border-white/30 bg-zinc-900 px-2 py-1 outline-none"
-			/>
-		</div>
-		<small>Showing {filteredMembers.length} of {members.length} entries</small>
+<section
+	class="sticky top-16 z-10 flex w-full items-center justify-between rounded-b-lg bg-zinc-900 px-5 py-3 drop-shadow-2xl"
+>
+	<div class="flex gap-3">
 		<button
-			form="logout"
-			class="rounded-lg border-[1px] border-red-500 px-2 py-1 text-red-500 transition-all hover:bg-zinc-800"
-			>Logout</button
-		>
-	</section>
+			on:click={() => {
+				populateFields();
+			}}
+			use:melt={$trigger}
+			class="rounded-lg bg-white px-2 py-1 text-black transition-all hover:bg-white/80"
+			>Create Member
+		</button>
+		<div class="flex w-[50vw] items-center gap-3">
+			<div
+				class="flex items-center gap-2 rounded-lg border-[1px] border-white/30 bg-zinc-900 px-2 py-1"
+			>
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input
+					id="search-bar"
+					bind:value={filter}
+					type="search"
+					placeholder="Search"
+					class="w-max bg-zinc-900 outline-none"
+				/>
+			</div>
+			<small class="w-fit text-center"
+				>Showing {filteredMembers.length} of {members.length} entries</small
+			>
+		</div>
+	</div>
+	<button
+		form="logout"
+		class="rounded-lg border-[1px] border-red-500 px-2 py-1 text-red-500 transition-all hover:bg-zinc-800"
+		>Logout</button
+	>
+</section>
 
+<main class="m-10 flex min-h-[60vh] flex-col gap-3">
 	<section class="rounded-lg bg-zinc-900">
 		{#each filteredMembers as member}
 			<div
+				id={member.uuid}
 				class="m-3 flex items-center justify-between rounded-lg p-3 transition-all hover:bg-zinc-800"
 			>
 				<div class="ml-3 flex items-center gap-5">

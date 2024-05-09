@@ -41,7 +41,7 @@ export const actions = {
 			return { status: 500, error: error.message };
 		}
 
-		return { status: 200, member };
+		return { status: 200, member, type: 'update' };
 	},
 	delete: async ({ request }) => {
 		const data = await request.formData();
@@ -53,6 +53,6 @@ export const actions = {
 			return { status: 500, error: error.message };
 		}
 
-		return { status: 200, error: null };
+		return { status: 200, error: null, type: 'delete' };
 	}
 } satisfies Actions;

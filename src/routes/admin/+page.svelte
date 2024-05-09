@@ -13,39 +13,41 @@
 	export let form;
 
 	onMount(() => {
-		if (form?.status !== 200) {
-			addToast({
-				data: {
-					title: 'Error',
-					description: 'Something went wrong...',
-					icon: 'fa-sharp fa-solid fa-shield-exclamation',
-					color: 'text-red-500'
+		if (form) {
+			if (form?.status !== 200) {
+				addToast({
+					data: {
+						title: 'Error',
+						description: 'Something went wrong...',
+						icon: 'fa-sharp fa-solid fa-shield-exclamation',
+						color: 'text-red-500'
+					}
+				});
+			} else {
+				switch (form?.type) {
+					case 'update':
+						addToast({
+							data: {
+								title: 'Success!',
+								description: 'Member has been updated successfully.',
+								icon: 'fa-sharp fa-solid fa-shield-plus',
+								color: 'text-green-500'
+							}
+						});
+						break;
+					case 'delete':
+						addToast({
+							data: {
+								title: 'Success!',
+								description: 'Member has been deleted successfully.',
+								icon: 'fa-sharp fa-solid fa-shield-minus',
+								color: 'text-green-500'
+							}
+						});
+						break;
+					default:
+						break;
 				}
-			});
-		} else {
-			switch (form?.type) {
-				case 'update':
-					addToast({
-						data: {
-							title: 'Success!',
-							description: 'Member has been updated successfully.',
-							icon: 'fa-sharp fa-solid fa-shield-plus',
-							color: 'text-green-500'
-						}
-					});
-					break;
-				case 'delete':
-					addToast({
-						data: {
-							title: 'Success!',
-							description: 'Member has been deleted successfully.',
-							icon: 'fa-sharp fa-solid fa-shield-minus',
-							color: 'text-green-500'
-						}
-					});
-					break;
-				default:
-					break;
 			}
 		}
 
@@ -152,7 +154,7 @@
 				populateFields();
 			}}
 			use:melt={$trigger}
-			class="rounded-lg bg-white px-2 py-1 text-black transition-all hover:bg-white/80"
+			class="rounded-lg bg-white px-2 py-1 font-rethink text-black transition-all hover:bg-white/80"
 			>Create Member
 		</button>
 		<div class="flex w-[50vw] items-center gap-3">
@@ -165,17 +167,17 @@
 					bind:value={filter}
 					type="search"
 					placeholder="Search"
-					class="w-max bg-zinc-900 outline-none"
+					class="w-max bg-zinc-900 font-rethink outline-none"
 				/>
 			</div>
-			<small class="w-fit text-center"
+			<small class="w-fit text-center font-rethink"
 				>Showing {filteredMembers.length} of {members.length} entries</small
 			>
 		</div>
 	</div>
 	<button
 		form="logout"
-		class="rounded-lg border-[1px] border-red-500 px-2 py-1 text-red-500 transition-all hover:bg-zinc-800"
+		class="rounded-lg border-[1px] border-red-500 px-2 py-1 font-rethink text-red-500 transition-all hover:bg-zinc-800"
 		>Logout</button
 	>
 </section>
@@ -236,7 +238,7 @@
 			transition:fade={{ duration: 150 }}
 		/>
 		<div
-			class="fixed left-1/2 top-1/2 z-50 max-h-[85vh] max-w-[500px] -translate-x-1/2 -translate-y-1/2 overflow-auto rounded-lg bg-zinc-900 p-5 shadow-xl"
+			class="fixed left-1/2 top-1/2 z-50 max-h-[85vh] max-w-[500px] -translate-x-1/2 -translate-y-1/2 overflow-auto rounded-lg bg-zinc-900 p-5 font-rethink shadow-xl"
 			use:melt={$content}
 			transition:fade={{ duration: 150 }}
 		>

@@ -28,7 +28,7 @@
 </script>
 
 {#await data.behold.posts[idx]}
-	<div class="w-3/4 rounded border-[1px] md:hidden">
+	<div class="w-3/4 rounded border-[1px] bg-black md:hidden">
 		<div class="h-96 w-full animate-pulse rounded bg-zinc-800" />
 		<div class="m-3 flex flex-col gap-1">
 			<div class="mb-2 flex items-center justify-between">
@@ -41,7 +41,7 @@
 		</div>
 	</div>
 
-	<div class="hidden w-3/4 rounded border-[1px] md:flex">
+	<div class="hidden w-3/4 rounded border-[1px] bg-black md:flex">
 		<div class="w-1/2">
 			<div class="h-96 animate-pulse rounded bg-zinc-800" />
 		</div>
@@ -59,7 +59,7 @@
 	<a
 		href={post.permalink}
 		target="_blank"
-		class="w-3/4 rounded border-[1px] border-white/25 transition-all hover:border-white/50 md:hidden"
+		class="w-3/4 rounded border-[1px] border-white/25 bg-black transition-all hover:border-white/50 md:hidden"
 	>
 		<img src={post.mediaUrl} alt="" class="rounded object-cover" />
 		<div class="m-3 flex flex-col justify-between">
@@ -76,7 +76,7 @@
 
 	<a
 		href={post.permalink}
-		class="hidden w-3/4 rounded border-[1px] border-white/25 transition-all hover:border-white/50 md:flex"
+		class="hidden w-3/4 rounded border-[1px] border-white/25 bg-black transition-all hover:border-white/50 md:flex"
 	>
 		<div class="w-1/2">
 			<img src={post.mediaUrl} alt="" class="h-full rounded-l object-cover" />

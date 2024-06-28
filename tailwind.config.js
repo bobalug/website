@@ -12,12 +12,15 @@ export default {
 				}
 			},
 			screens: {
-				'nav-socials': '835px',
+				'nav-socials': '860px',
 				'members-cols': '775px',
-				'nav-headers': '665px'
+				'nav-headers': '700px'
 			},
 			boxShadow: {
 				glow: '5px 5px 5px -2px rgba(0, 0, 0, 0.3)'
+			},
+			dropShadow: {
+				glow: ['0 0px 20px rgba(255,255, 255, 0.35)', '0 0px 65px rgba(255, 255,255, 0.2)']
 			}
 		}
 	},

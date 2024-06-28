@@ -63,15 +63,15 @@ export type Database = {
 			sessions: {
 				Row: {
 					session_id: string;
-					user_id: number;
+					user_id: string;
 				};
 				Insert: {
 					session_id: string;
-					user_id: number;
+					user_id: string;
 				};
 				Update: {
 					session_id?: string;
-					user_id?: number;
+					user_id?: string;
 				};
 				Relationships: [];
 			};

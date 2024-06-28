@@ -3,6 +3,7 @@
 
 	export let displayName: string;
 	export let position: string;
+	export let placement: string = 'None';
 	export let src: string;
 	export let onEdit: () => void;
 	export let onDelete: () => void;
@@ -13,7 +14,7 @@
 		<ProfilePicture {src} char={displayName.charAt(0)} />
 		<div class="flex flex-col">
 			<strong>{displayName}</strong>
-			<small class="text-zinc-400">{position}</small>
+			<small class="text-zinc-400">{position} | Placement: {placement}</small>
 		</div>
 	</div>
 	<div class="flex gap-3">

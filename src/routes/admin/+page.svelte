@@ -184,12 +184,17 @@
 
 <main class="m-10 flex min-h-[60vh] flex-col gap-3">
 	<section class="rounded-lg bg-zinc-900">
-		{#each filteredMembers as member}
+		{#each filteredMembers as member, idx}
 			<div
 				id={member.uuid}
 				class="m-3 flex items-center justify-between rounded-lg p-3 transition-all hover:bg-zinc-800"
 			>
 				<div class="ml-3 flex items-center gap-5">
+					{#if member.priority}
+						<p class="font-rethink"># {member.priority}</p>
+					{:else}
+						<p class="font-rethink">N/A</p>
+					{/if}
 					<ProfilePicture src={member.avatar_url ?? ''} char={member.display_name.charAt(0)} />
 					<div class="flex flex-col">
 						<strong>{member.display_name}</strong>
@@ -232,6 +237,7 @@
 
 {#if $open}
 	<div>
+		<!-- svelte-ignore element_invalid_self_closing_tag -->
 		<div
 			class="fixed inset-0 z-50 bg-black/50"
 			use:melt={$overlay}
@@ -295,7 +301,7 @@
 							class="w-full rounded-lg border-[1px] border-white/30 bg-zinc-900 px-2 py-1 outline-none"
 							name="about"
 							value={currentMember.about}
-						/>
+						></textarea>
 					</label>
 				</fieldset>
 				<div>

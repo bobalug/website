@@ -11,8 +11,8 @@ export const actions = {
 		const email = form.get('email') as string;
 		const password = form.get('password') as string;
 
-		const { user, message } = await login(email, password);
-		if (!user) return { success: false, message };
+		const { success, message } = login(email, password);
+		if (!success) return { success: false, message };
 
 		const sessionId = Math.random().toString(36).substring(2);
 		cookies.set('session_id', sessionId, { path: '/', maxAge: 10800 });
@@ -20,12 +20,12 @@ export const actions = {
 		const { data: session, error } = await supabase
 			.from('sessions')
 			.select()
-			.eq('user_id', user.id);
+			.eq('user_id', email);
 
 		if (error || session.length === 0) {
-			await supabase.from('sessions').insert({ session_id: sessionId, user_id: user.id });
+			await supabase.from('sessions').insert({ session_id: sessionId, user_id: email });
 		} else {
-			await supabase.from('sessions').update({ session_id: sessionId }).eq('user_id', user.id);
+			await supabase.from('sessions').update({ session_id: sessionId }).eq('user_id', email);
 		}
 
 		throw redirect(301, '/admin?message=Login+successful!');

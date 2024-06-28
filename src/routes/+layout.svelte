@@ -10,7 +10,7 @@
 <Toaster />
 
 {#if navOpen}
-	<div class="sticky top-0 z-50 w-full bg-black/70 backdrop-blur-lg">
+	<div class="sticky top-0 z-50 w-full border-b-[0.5px] border-white border-opacity-30 bg-black">
 		<a class="flex items-center gap-3 p-3" href="/">
 			<img src={logo} alt="BobaLUG" class="w-10 rounded-lg bg-green-boba p-1" />
 			<h1 class="text-2xl font-bold">BobaLUG</h1>
@@ -40,7 +40,7 @@
 	</div>
 {:else}
 	<nav
-		class="sticky top-0 z-50 flex w-full items-center justify-between bg-black bg-opacity-70 p-3 font-rethink text-white backdrop-blur-lg"
+		class="sticky top-0 z-50 flex w-full items-center justify-between border-b-[0.5px] border-white border-opacity-30 bg-black p-3 font-rethink text-white"
 	>
 		<a class="flex items-center gap-3" href="/">
 			<img src={logo} alt="BobaLUG" class="w-10 rounded-lg bg-green-boba p-1" />
@@ -51,7 +51,7 @@
 				<i class="fa-solid fa-bars"></i>
 			</button>
 		</div>
-		<div class="hidden items-center gap-5 nav-headers:flex">
+		<div class="hidden items-center gap-8 nav-headers:flex">
 			<a href="/" class="transition-all hover:text-green-boba">Home</a>
 			<a
 				href="https://bobalug-instructions.creator-spring.com/"

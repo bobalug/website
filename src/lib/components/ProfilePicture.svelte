@@ -4,9 +4,11 @@
 </script>
 
 {#if !src || src === ''}
-	<div class={`flex size-16 items-center justify-center rounded-full bg-zinc-700 uppercase`}>
+	<div
+		class={`flex size-16 items-center justify-center rounded-full bg-zinc-700 uppercase shadow-xl`}
+	>
 		<span class="font-sans text-3xl font-bold">{char}</span>
 	</div>
 {:else}
-	<img class={`size-16 rounded-full object-cover object-center`} {src} alt={char} />
+	<img class={`size-16 rounded-full object-cover object-center shadow-xl`} {src} alt={char} />
 {/if}
